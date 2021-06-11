@@ -44,7 +44,7 @@ void BingoArea::InitCircles() {
       sscanf(kRcourseCircleData[i], "%c,%f,%f,%c", &id, &x, &y, &color);
     }
     else {
-      sscanf(kLcourseCircleData[i], "%c,%f  ,%f,%c", &id, &x, &y, &color);
+      sscanf(kLcourseCircleData[i], "%c,%f,%f,%c", &id, &x, &y, &color);
     }
     Circle circle = { id, x, y, color };
     circles_.push_back(circle);
