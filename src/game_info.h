@@ -39,10 +39,10 @@ struct Block {
 };
 
 struct Robot {
-  float x_;
-  float y_;
-  float theta_;
-  Circle* circle_;
+  float x;
+  float y;
+  float theta;
+  Circle* circle;
 };
 
 struct DrivingParam {
@@ -55,6 +55,7 @@ public:
   ~BingoArea();
   void SetBlockDefaultPos(BlockId block_id, char circle_id);
   void SetRobotDefaultTheta(float theta);
+  Circle* FindCircle(char circle_id);
   std::vector<Circle> circles_;
   std::vector<Block> blocks_;
   Robot* robot_;

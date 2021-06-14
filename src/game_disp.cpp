@@ -122,9 +122,9 @@ void BingoShow::DrawBlocks() {
 void BingoShow::DrawRobot() {
   const Robot* robot = bingo_area_->robot_;
 
-  float x = robot->x_ * kMagnification;
-  float y = robot->y_ * kMagnification;
-  float theta = robot->theta_;
+  float x = robot->x * kMagnification;
+  float y = robot->y * kMagnification;
+  float theta = robot->theta;
 
   ofSetColor(kRobotColor);
   ofDrawCircle(x, y, kRobotRadius);

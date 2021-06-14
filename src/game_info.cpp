@@ -32,7 +32,17 @@ void BingoArea::SetBlockDefaultPos(BlockId block_id, char circle_id) {
 }
 
 void BingoArea::SetRobotDefaultTheta(float theta) {
-  robot_->theta_ = theta;
+  robot_->theta = theta;
+}
+
+Circle* BingoArea::FindCircle(char circle_id) {
+  using namespace std;
+  vector<Circle>::iterator c;
+  for (c = circles_.begin(); c != circles_.end(); ++c) {
+    if (c->id == circle_id)
+      return &*c;
+  }
+  return NULL;
 }
 
 void BingoArea::InitCircles() {
