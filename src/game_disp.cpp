@@ -2,14 +2,14 @@
 
 #include "ofMain.h"
 
-const ofColor kSilver(0xC0, 0xC0, 0xC0);
-const ofColor kBlack(0x00, 0x00, 0x00);
-const ofColor kRed(0xFF, 0x00, 0x00);
-const ofColor kGreen(0x00, 0xFF, 0x00);
-const ofColor kBlue(0x00, 0x00, 0xFF);
-const ofColor kYellow(0xFF, 0xFF, 0x00);
-const ofColor kRobotColor(0x00, 0x00, 0x00, 0xA0);
-const ofColor kRobotInnerColor(0xC0, 0xC0, 0xC0, 0xA0);
+const ofColor kOfSilver(0xC0, 0xC0, 0xC0);
+const ofColor kOfBlack(0x00, 0x00, 0x00);
+const ofColor kOfRed(0xFF, 0x00, 0x00);
+const ofColor kOfGreen(0x00, 0xFF, 0x00);
+const ofColor kOfBlue(0x00, 0x00, 0xFF);
+const ofColor kOfYellow(0xFF, 0xFF, 0x00);
+const ofColor kOfRobotColor(0x00, 0x00, 0x00, 0xA0);
+const ofColor kOfRobotInnerColor(0xC0, 0xC0, 0xC0, 0xA0);
 
 const int kLinkLineWidth = 3;
 const int kMagnification = 33;
@@ -27,7 +27,7 @@ void BingoShow::Draw() {
   ofTranslate(1024 / 2, 768 / 2);
   ofScale(1, -1);
 
-  ofBackground(kSilver);
+  ofBackground(kOfSilver);
 
   DrawLinks();
   DrawCircles();
@@ -36,7 +36,7 @@ void BingoShow::Draw() {
 }
 
 void BingoShow::DrawLinks() {
-  ofSetColor(kBlack);
+  ofSetColor(kOfBlack);
   ofSetLineWidth(kLinkLineWidth);
 
   using namespace std;
@@ -64,22 +64,22 @@ void BingoShow::DrawCircles() {
 
     switch (c->color) {
       case 'R':
-        ofSetColor(kRed);
+        ofSetColor(kOfRed);
         break;
       case 'G':
-        ofSetColor(kGreen);
+        ofSetColor(kOfGreen);
         break;
       case 'B':
-        ofSetColor(kBlue);
+        ofSetColor(kOfBlue);
         break;
       case 'Y':
-        ofSetColor(kYellow);
+        ofSetColor(kOfYellow);
         break;
       default:
         continue;
     }
     ofDrawCircle(x, y, kCircleRadius);
-    ofSetColor(kSilver);
+    ofSetColor(kOfSilver);
     ofDrawCircle(x, y, kCircleRadius * kInnerCirclePct);
   }
 }
@@ -98,19 +98,19 @@ void BingoShow::DrawBlocks() {
 
     switch (b->color) {
       case 'R':
-        ofSetColor(kRed);
+        ofSetColor(kOfRed);
         break;
       case 'G':
-        ofSetColor(kGreen);
+        ofSetColor(kOfGreen);
         break;
       case 'B':
-        ofSetColor(kBlue);
+        ofSetColor(kOfBlue);
         break;
       case 'Y':
-        ofSetColor(kYellow);
+        ofSetColor(kOfYellow);
         break;
       case 'K':
-        ofSetColor(kBlack);
+        ofSetColor(kOfBlack);
         break;
       default:
         continue;
@@ -126,13 +126,13 @@ void BingoShow::DrawRobot() {
   float y = robot->y * kMagnification;
   float theta = robot->theta;
 
-  ofSetColor(kRobotColor);
+  ofSetColor(kOfRobotColor);
   ofDrawCircle(x, y, kRobotRadius);
 
-  ofSetColor(kRobotInnerColor);
+  ofSetColor(kOfRobotInnerColor);
   ofDrawCircle(x, y, kRobotRadius * kInnerRobotPct);
 
-  ofSetColor(kRobotColor);
+  ofSetColor(kOfRobotColor);
   ofSetLineWidth(kRobotLineWidth);
   ofDrawLine(x, y, x + kRobotRadius * cos(theta), y + kRobotRadius * sin(theta));
 }
