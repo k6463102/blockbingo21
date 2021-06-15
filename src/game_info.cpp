@@ -68,14 +68,17 @@ void BingoArea::InitCircles() {
       if (c1 == c2)
         continue;
 
-      if ('1' <= c1->id && c1->id <= '9' || '1' <= c2->id && c2->id <= '9')
-        continue;
+      if ('1' <= c1->id && c1->id <= '9' || '1' <= c2->id && c2->id <= '9') {
+        if(sqrt(pow(c1->x - c2->x, 2) + pow(c1->y - c2->y, 2)) <= 3)
+          c1->next.push_back(&*c2);
 
-      if (c1->x == c2->x && abs(c1->y - c2->y) <= 7)
-        c1->next.push_back(&*c2);
+      } else {
+        if (c1->x == c2->x && abs(c1->y - c2->y) <= 7)
+          c1->next.push_back(&*c2);
 
-      if (c1->y == c2->y && abs(c1->x - c2->x) <= 7)
-        c1->next.push_back(&*c2);
+        if (c1->y == c2->y && abs(c1->x - c2->x) <= 7)
+          c1->next.push_back(&*c2);
+      }
     }
   }
 }
