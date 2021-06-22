@@ -13,6 +13,8 @@ public:
   vector<DrivingParam> GetDrivingParam(string moving_route);
 
 private:
+  float CalcDtheta(float dx, float dy);
+  Color ConvertCharToColor(char circle_color);
   BingoArea* bingo_area_;
 };
 
